@@ -1,1 +1,1 @@
-"# vue3-basic" 
+# vue3-basic
