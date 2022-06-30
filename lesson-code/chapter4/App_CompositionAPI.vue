@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { isRef, onBeforeMount, onMounted, ref } from 'vue';
+import { onBeforeMount, onMounted, ref } from 'vue';
 export default {
 	setup() {
 		console.log('setup');
@@ -21,14 +21,14 @@ export default {
 		};
 
 		// isRef : 반응형 데이터인지 체크
-		console.log('isRef(reactiveMessage) : ', isRef(reactiveMessage));
+		//console.log('isRef(reactiveMessage) : ', isRef(reactiveMessage));
 
 		let normalMessage = 'Hello Normal Message';
 		const addNormalMessage = () => {
 			normalMessage = normalMessage + '!';
 		};
 
-		console.log('isRef(normalMessage) : ', isRef(normalMessage));
+		//console.log('isRef(normalMessage) : ', isRef(normalMessage));
 
 		onMounted(() => {
 			console.log('onMounted');
