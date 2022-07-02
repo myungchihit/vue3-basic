@@ -14,7 +14,7 @@ import { onBeforeMount, onMounted, ref } from 'vue';
 export default {
 	setup() {
 		console.log('setup');
-
+		
 		const reactiveMessage = ref('Hello Reactive Message');
 		const addReactiveMessage = () => {
 			reactiveMessage.value = reactiveMessage.value + '!';
@@ -46,6 +46,10 @@ export default {
 		};
 	},
 };
+
+import { h, ref } from 'vue'
+
+
 </script>
 
 <style lang="scss" scoped></style>
