@@ -20,6 +20,7 @@ export default {
 		const addMessage = () => {
 			message.value = message.value + '!';
 		};
+
 		return {
 			message,
 			addMessage,
