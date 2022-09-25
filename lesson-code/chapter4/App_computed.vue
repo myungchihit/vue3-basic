@@ -25,13 +25,14 @@ export default {
 
 		// computed를 쓰지않고 함수를 리턴해서 html에서 ()를 붙여 실행을 할 수는 있어도
 		// computed가 효율이 훨씬 좋음.
-		// computed는 cache에 저장을해놓고 거기서 계속 가져다 쓰지만 함수는 계속 실행됨.
+		// computed는 캐시에 저장을해놓고 거기서 계속 가져다 쓰지만 함수는 계속 실행됨.
+	
 		const hasLecture = computed(() => {
-			console.log('computed');
+			console.log('computed');    // 컴포넌트의 다른 state들이 변경되어도 출력되지 않는다.
 			return test.letctures.length > 0 ? '있음' : '없음';
 		});
 		const existLecture = () => {
-			console.log('method');
+			console.log('method');      // 다른 state들이 변경되도 계속 실행된다.
 			return test.letctures.length > 0 ? '있음' : '없음';
 		};
 
