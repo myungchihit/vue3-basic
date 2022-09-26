@@ -1,6 +1,8 @@
 <template>
 	<div>
 		<!-- <div class="text" :class="{ active: isActive, 'text-danger': hasError }"> -->
+		<!-- <div :class="classObject"></div> -->
+
 		<div
 			class="text"
 			:class="[isActive ? 'active-class' : 'class', errorClass, classObject]"
