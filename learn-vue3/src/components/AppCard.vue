@@ -42,7 +42,7 @@ export default {
 		},
 		contents: {
 			type: String,
-			required: true,
+			//required: true,
 		},
 		isLike: {
 			type: Boolean,
@@ -56,7 +56,7 @@ export default {
 	},
 	emits: ['toggleLike'], // 자식 컴포넌트에서 부모 컴포넌트로 이벤트 올리기
 	setup(props, context) {
-		console.log(`props.title: `, props.title);
+		//console.log(`props.title: `, props.title);
 		const isLikeClass = computed(() =>
 			props.isLike ? 'btn-danger' : 'btn-outline-danger',
 		);

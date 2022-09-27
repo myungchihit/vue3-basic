@@ -2,7 +2,7 @@
 	<TheNav></TheNav>
 	<TheView></TheView>
 	<!-- 전역등록된 AppCard -->
-	<AppCard></AppCard>
+	<!-- <AppCard></AppCard> -->
 </template>
 
 <script>

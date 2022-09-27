@@ -1,6 +1,12 @@
 <template>
 	<main>
 		<div class="container py-4">
+			<!-- <PostCreate v-on:create-post="createPost"></PostCreate> -->
+			<!-- 이벤트 발생/수신 , 이벤트 파라미터, 이벤트 선언 예제 -->
+			<PostCreate @create-post="createPost"></PostCreate>
+
+			<hr class="my-4" />
+
 			<div class="row g-3">
 				<div class="col col-4">
 					<!-- PascalCase(권장) -->
@@ -13,12 +19,13 @@
 					<!-- kebab-cased ==> 부모에서 props를 전달할때는 케밥 케이스를 쓰는것을 권장합니다.-->
 					<!-- <app-card></app-card> -->
 				</div>
+
 				<div class="col col-4">
 					<AppCard
-						:title="post.title"
-						:contents="post.contents"
-						:type="post.type"
-						:is-like="post.isLike"
+						v-bind:title="post.title"
+						v-bind:contents="post.contents"
+						v-bind:type="post.type"
+						v-bind:is-like="post.isLike"
 					></AppCard>
 				</div>
 
@@ -31,18 +38,52 @@
 						@toggle-like="post.isLike = !post.isLike"
 					></AppCard>
 				</div>
+
+				<hr class="my-4" />
+
+				<!-- v-model 만들기 예제 -->
+				<!-- <LabelInput
+					:model-value="username"
+					@update:model-value="value => (username = value)"
+					label="이름"
+				></LabelInput> -->
+				<LabelInput
+					v-model="username"
+					label="v-model modelValue 사용: "
+				></LabelInput>
+				<LabelTitle
+					v-model:title="username"
+					label="v-model 전달인자 : "
+				></LabelTitle>
+				<br />
+				{{ username }}
+				<br />
+
+				<!-- 다중 v-model 바인딩 예제 -->
+				<UserName
+					v-model:firstname="firstname"
+					v-model:lastname="lastname"
+				></UserName>
 			</div>
 		</div>
 	</main>
 </template>
 
 <script>
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import AppCard from './AppCard.vue';
+import PostCreate from './PostCreate.vue';
+import LabelInput from './LabelInput.vue';
+import LabelTitle from './LabelTitle.vue';
+import UserName from './UserName.vue';
 
 export default {
 	components: {
 		AppCard,
+		PostCreate,
+		LabelInput,
+		LabelTitle,
+		UserName,
 	},
 	setup() {
 		const post = reactive({
@@ -71,9 +112,23 @@ export default {
 			},
 		]);
 
+		const createPost = newPost => {
+			console.log('createPost');
+			console.log('newPost : ', newPost);
+			posts.push(newPost);
+		};
+
+		// v-model 만들기
+		const username = ref('');
+		const firstname = ref('');
+		const lastname = ref('');
 		return {
 			post,
 			posts,
+			createPost,
+			username,
+			firstname,
+			lastname,
 		};
 	},
 };
