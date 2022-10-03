@@ -1,26 +1,17 @@
 <template>
-	<div>
-		<main>
-			<div class="container py-4">
-				<MyButton @click="sayHello"></MyButton>
-			</div>
-		</main>
-	</div>
+	<main>
+		<ProvideInject></ProvideInject>
+	</main>
 </template>
 
 <script>
-import MyButton from './MyButton.vue';
+import ProvideInject from './ProvideInject.vue';
 export default {
 	components: {
-		MyButton,
+		ProvideInject,
 	},
 	setup() {
-		const sayHello = () => {
-			alert('ㅇㅇㅇ');
-		};
-		return {
-			sayHello,
-		};
+		return {};
 	},
 };
 </script>

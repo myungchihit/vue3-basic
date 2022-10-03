@@ -10,33 +10,33 @@
 			<div class="row g-3">
 				<div class="col col-4">
 					<!-- PascalCase(권장) -->
-					<AppCard
+					<PostItem
 						title="string title"
 						contents="string content"
 						type="notice"
 						is-like="true"
-					></AppCard>
+					></PostItem>
 					<!-- kebab-cased ==> 부모에서 props를 전달할때는 케밥 케이스를 쓰는것을 권장합니다.-->
 					<!-- <app-card></app-card> -->
 				</div>
 
 				<div class="col col-4">
-					<AppCard
+					<PostItem
 						v-bind:title="post.title"
 						v-bind:contents="post.contents"
 						v-bind:type="post.type"
 						v-bind:is-like="post.isLike"
-					></AppCard>
+					></PostItem>
 				</div>
 
 				<div class="col col-4" v-for="post in posts" :key="post.id">
-					<AppCard
+					<PostItem
 						:title="post.title"
 						:contents="post.contents"
 						:type="post.type"
 						:is-like="post.isLike"
 						@toggle-like="post.isLike = !post.isLike"
-					></AppCard>
+					></PostItem>
 				</div>
 
 				<hr class="my-4" />
@@ -80,7 +80,7 @@
 
 <script>
 import { reactive, ref } from 'vue';
-import AppCard from './AppCard.vue';
+import PostItem from './PostItem.vue';
 import PostCreate from './PostCreate.vue';
 import LabelInput from './LabelInput.vue';
 import LabelTitle from './LabelTitle.vue';
@@ -88,7 +88,7 @@ import UserName from './UserName.vue';
 
 export default {
 	components: {
-		AppCard,
+		PostItem,
 		PostCreate,
 		LabelInput,
 		LabelTitle,

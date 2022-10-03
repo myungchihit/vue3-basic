@@ -4,7 +4,6 @@
 		<button type="button" class="btn btn-primary" v-bind="$attrs">
 			My Button
 		</button>
-		{{ $attrs }}
 	</div>
 </template>
 
